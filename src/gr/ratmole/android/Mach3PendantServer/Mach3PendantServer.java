@@ -105,6 +105,7 @@ public class Mach3PendantServer {
         try {
             prop.load(new FileInputStream(propertiesFileName));
         } catch (IOException e) {
+            releaseAllKeys();
             e.printStackTrace();
         }
 
@@ -134,6 +135,7 @@ public class Mach3PendantServer {
         stopping = true;
         tcpServer.stop();
         udpServer.stop();
+        releaseAllKeys();
         saveProperties();
         System.exit(0);
     }
@@ -150,6 +152,7 @@ public class Mach3PendantServer {
         try {
             prop.store(new FileOutputStream(propertiesFileName), "This is a Mach3PendantServer properties file");
         } catch (IOException e) {
+            releaseAllKeys();
             e.printStackTrace();
         }
 
@@ -219,6 +222,7 @@ public class Mach3PendantServer {
             try {
                 tray.add(trayIcon);
             } catch (AWTException e) {
+                releaseAllKeys();
                 e.printStackTrace();
             }
 
@@ -252,6 +256,7 @@ public class Mach3PendantServer {
                     try {
                         Thread.sleep(DELAY_OF_REQUEST_NEW_WINDOW_TITLE);
                     } catch (InterruptedException e) {
+                        releaseAllKeys();
                         e.printStackTrace();
                     }
                 }
@@ -299,50 +304,23 @@ public class Mach3PendantServer {
         return "";
     }
 
+	private void runEventSequence(EventSequence sequence) {
+		for (Event event : sequence.getSequence()) {
+			// KEY event
+			if (event instanceof KeyEvent) {
 
-    private void runEventSequence(EventSequence sequence) {
-        for (Event event : sequence.getSequence()) {
+				KeyEvent keyEvent = (KeyEvent) event;
+				if (keyEvent.press) {
+					robot.keyPress(keyEvent.code);
+				} else {
+					robot.keyRelease(keyEvent.code);
 
-            //KEY event
-            if (event instanceof KeyEvent) {
-            	 
-                KeyEvent keyEvent = (KeyEvent) event;
-                if (keyEvent.press) {
-                    robot.keyPress(keyEvent.code);
-                } else {
-                    robot.keyRelease(keyEvent.code);
+				}
+			}
 
-                }
-            }
-
-            //MOUSE event
-            else if (event instanceof MouseEvent) {
-                MouseEvent e = (MouseEvent) event;
-
-                if (e.getEventType() == MouseEvent.Type.WHEEL) {
-                    robot.mouseWheel(e.getWheelAmt());
-
-                } else if (e.getEventType() == MouseEvent.Type.BUTTON) {
-                    if (e.isPress()) {
-                        robot.mousePress(e.getButton());
-                    } else {
-                        robot.mouseRelease(e.getButton());
-                    }
-                }
-            }
-
-        }
-
-    }
-
-    private void executeCommand(ExecutableCommand command) {
-        //EXECUTABLE COMMAND event
-        try {
-            Runtime.getRuntime().exec(command.getCommand());
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-    }
+		}
+	}
+   
 
     //Obtain the image URL
     protected Image createImage(String path, String description) {
@@ -437,20 +415,26 @@ public class Mach3PendantServer {
         public void received(Connection connection, Object object) {
             if (object instanceof EventSequence) {
                 runEventSequence((EventSequence) object);
-            } else if (object instanceof ExecutableCommand) {
-                executeCommand((ExecutableCommand) object);
-            }
+            } 
         }
 
-        @Override
-        public void disconnected(Connection connection) {
-            authorizedConnections.remove(connection);
+    @Override
+    public void disconnected(Connection connection) {
+        displayInfoMessage("Connection", "Mach3Pendant client has been disconnected");
+        releaseAllKeys();
+        }
+    
+    
+    }
+    
+    public void releaseAllKeys(){
+    	for (String key: MapStringToKeyCode.map.keySet()) {
+        robot.keyRelease(MapStringToKeyCode.map.get(key));
         }
     }
-
    
         public void finish() {
-            
+            releaseAllKeys();
         }
     
    
