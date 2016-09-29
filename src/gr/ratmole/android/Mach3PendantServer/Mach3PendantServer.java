@@ -26,8 +26,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
+import gr.ratmole.android.Mach3PendantServer.Mach3;
+
 
 public class Mach3PendantServer {
+	
     private static final String propertiesFileName = "Mach3PendantServer.properties";
     private static final String APP_NAME = "Mach3PendantServer";
     private final Logger l = LoggerFactory.getLogger(Mach3PendantServer.class);
@@ -46,11 +49,11 @@ public class Mach3PendantServer {
 
     //User32 lib specific data
     private User32 user32 = (User32) Native.loadLibrary("user32", User32.class);
+
     private byte[] windowText = new byte[512];
     private static final long DELAY_OF_REQUEST_NEW_WINDOW_TITLE = 10;
     private PointerType hwnd;
 
-  
     private static final int APP_VERSION = 101;
 
     private static final String MENU_LABEL_STATE = "State...";
@@ -68,13 +71,19 @@ public class Mach3PendantServer {
 
         int GetWindowThreadProcessId(PointerType hWnd, IntByReference p);
     }
-
+   
     public Mach3PendantServer() {
         //Override System.out to the logger
         SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
         l.info("Starting " + APP_NAME + " " + APP_VERSION);
         loadProperties();
 
+        //Mach3 dro = (Mach3)Native.loadLibrary("Flash", Mach3.class);
+        //double code = 1;
+        ///double answer = (double) dro.GetDRO(code);
+        //   displayInfoMessage("Connection", "DRO"+answer);
+
+        	 
         initTrayIcon();
 
         try {
@@ -429,7 +438,9 @@ public class Mach3PendantServer {
     
     public void releaseAllKeys(){
     	for (String key: MapStringToKeyCode.map.keySet()) {
-        robot.keyRelease(MapStringToKeyCode.map.get(key));
+    		if (robot != null){
+    			robot.keyRelease(MapStringToKeyCode.map.get(key));
+    		}
         }
     }
    

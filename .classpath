@@ -3,7 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="libs/ddmlib.jar"/>
 	<classpathentry kind="lib" path="libs/javasysmon-0.3.3.jar"/>
-	<classpathentry kind="lib" path="libs/jna.jar"/>
 	<classpathentry kind="lib" path="libs/kryonet-1.04-all.jar"/>
 	<classpathentry kind="lib" path="libs/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="libs/platform.jar"/>
@@ -11,5 +10,6 @@
 	<classpathentry kind="lib" path="libs/slf4j-log4j12-1.6.2.jar"/>
 	<classpathentry kind="lib" path="libs/sysout-over-slf4j-1.0.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/jna-4.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
