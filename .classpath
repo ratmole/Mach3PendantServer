@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="libs/ddmlib.jar"/>
-	<classpathentry kind="lib" path="libs/javasysmon-0.3.3.jar"/>
-	<classpathentry kind="lib" path="libs/kryonet-1.04-all.jar"/>
-	<classpathentry kind="lib" path="libs/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="libs/platform.jar"/>
-	<classpathentry kind="lib" path="libs/slf4j-api-1.6.2.jar"/>
-	<classpathentry kind="lib" path="libs/slf4j-log4j12-1.6.2.jar"/>
-	<classpathentry kind="lib" path="libs/sysout-over-slf4j-1.0.2.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="libs/jna-4.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.5/654135274d4c27132ea208a4ec07f344bdb83bcb/slf4j-api-1.7.5-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.5/6b262da268f8ad9eff941b25503a9198f0a0ac93/slf4j-api-1.7.5.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.6.4/cd97eae3b52e1ba976f722885c571a8529a552f0/slf4j-simple-1.6.4-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.6.4/6998922e7ac5ab307bd51c233776a67da0031298/slf4j-simple-1.6.4.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/uk.org.lidalia/sysout-over-slf4j/1.0.2/1c66405593878b3c217bc04de3b015fe44b72744/sysout-over-slf4j-1.0.2-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/uk.org.lidalia/sysout-over-slf4j/1.0.2/225779e5be0ad47f7a632423b5526ed95d4a6783/sysout-over-slf4j-1.0.2.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryonet/2.22.0-RC1/8ee2b983164bf6b9d194004c84b11b7397079d32/kryonet-2.22.0-RC1-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryonet/2.22.0-RC1/2f25f7250a3096a8d1b8182946f6572d90d280d0/kryonet-2.22.0-RC1.jar" exported="true"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.jezhumble.wso2/javasysmon/0.3.3/26c945b6a57b24be926f94b31a055c54e0af406a/javasysmon-0.3.3.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/4.2.2/948a9338b46e83bc029a0c500f1de0fc6eea8900/jna-4.2.2-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/4.2.2/5012450aee579c3118ff09461d5ce210e0cdc2a9/jna-4.2.2.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.5.2/bc6b5158219706865e4a527e2602301286842641/platform-3.5.2-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.5.2/beac07d13858ef3697ceeab43897d70aeb5113c9/platform-3.5.2.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware.minlog/minlog/1.2/c0bf75c30b19393673253e25708aa797a545fa10/minlog-1.2-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware.minlog/minlog/1.2/59bfcd171d82f9981a5e242b9e840191f650e209/minlog-1.2.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/611a57d836e2c320d59f9851d4ad587f3c8472e/objenesis-2.1-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/87c0ea803b69252868d09308b4618f766f135a96/objenesis-2.1.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware.kryo/kryo/2.24.0/72af5078b1592b627f2b4187f95decf72829b0e9/kryo-2.24.0-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware.kryo/kryo/2.24.0/c6b206e80cfd97e66a1364003724491c757b92f/kryo-2.24.0.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/jsonbeans/0.7/5ddae466293fa27293a4eb341deffabc4d013564/jsonbeans-0.7-sources.jar" kind="lib" path="C:/Documents and Settings/IEUser/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/jsonbeans/0.7/de977f0875708eddd154f2a4c3a3f58a13ef297/jsonbeans-0.7.jar" exported="true"/>
 </classpath>

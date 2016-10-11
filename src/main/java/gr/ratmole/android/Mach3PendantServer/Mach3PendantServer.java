@@ -20,13 +20,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
-import gr.ratmole.android.Mach3PendantServer.Mach3;
 
 
 public class Mach3PendantServer {
@@ -76,14 +76,11 @@ public class Mach3PendantServer {
         //Override System.out to the logger
         SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
         l.info("Starting " + APP_NAME + " " + APP_VERSION);
-        loadProperties();
-
-        //Mach3 dro = (Mach3)Native.loadLibrary("Flash", Mach3.class);
-        //double code = 1;
-        ///double answer = (double) dro.GetDRO(code);
-        //   displayInfoMessage("Connection", "DRO"+answer);
-
-        	 
+        File f = new File(propertiesFileName);
+        if(f.exists() && !f.isDirectory()) { 
+        	loadProperties();
+        }
+               	 
         initTrayIcon();
 
         try {

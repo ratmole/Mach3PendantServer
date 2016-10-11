@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'eu.appsatori.fatjar'
+
+mainClassName = "gr.ratmole.android.Mach3PendantServer.Main"
+
+  fatJar {
+  classifier 'fat'
+  manifest {
+    attributes 'Main-Class': mainClassName
+  }
+  destinationDir = file("$rootDir/WinPrecompiled")
+  archiveName 'Mach3PendantServer.jar'
+  exclude 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.SF'
+}
+
+repositories {
+    // Use 'maven central' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+     maven {
+        url "http://dist.wso2.org/maven2/"
+    }
+}
+
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-simple:1.6.4'
+    compile 'uk.org.lidalia:sysout-over-slf4j:1.0.2'
+    compile 'com.esotericsoftware:kryonet:2.22.0-RC1'
+    compile 'com.jezhumble.wso2:javasysmon:0.3.3'
+    compile 'net.java.dev.jna:jna:4.2.2'
+    compile 'net.java.dev.jna:platform:3.5.2'
+}
